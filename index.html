@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="Project page for 'AnyLift: Scaling Motion Reconstruction from Internet Videos via 2D Diffusion'.">
+    <meta property="og:title" content="AnyLift: Scaling Motion Reconstruction from Internet Videos via 2D Diffusion"/>
+    <meta property="og:description" content="Reconstructing 3D human motion and human-object interactions (HOI) from Internet videos is a fundamental step toward building large-scale datasets of human behavior. Existing methods struggle to recover globally consistent 3D motion under dynamic cameras, especially for motion types underrepresented in current motion-capture datasets, and face additional difficulty recovering coherent human-object interactions in 3D. We introduce a two-stage framework leveraging 2D diffusion that reconstructs 3D human motion and HOI from Internet videos. In the first stage, we synthesize multi-view 2D motion data for each domain, leveraging 2D keypoints extracted from Internet videos to incorporate human motions that rarely appear in existing MoCap datasets. In the second stage, a camera-conditioned multi-view 2D motion diffusion model is trained on these domain-specific synthetic data to recover 3D human motion and 3D HOI in the world space. We demonstrate the effectiveness of our method on Internet videos featuring challenging motions such as gymnastics, as well as in-the-wild HOI videos, and show that it outperforms prior work in producing realistic human motion and human-object interaction."/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/images/banner_image.png" />
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <meta name="twitter:title" content="AnyLift: Scaling Motion Reconstruction from Internet Videos via 2D Diffusion">
+    <meta name="twitter:description" content="Reconstructing 3D human motion and human-object interactions (HOI) from Internet videos is a fundamental step toward building large-scale datasets of human behavior. Existing methods struggle to recover globally consistent 3D motion under dynamic cameras, especially for motion types underrepresented in current motion-capture datasets, and face additional difficulty recovering coherent human-object interactions in 3D. We introduce a two-stage framework leveraging 2D diffusion that reconstructs 3D human motion and HOI from Internet videos. In the first stage, we synthesize multi-view 2D motion data for each domain, leveraging 2D keypoints extracted from Internet videos to incorporate human motions that rarely appear in existing MoCap datasets. In the second stage, a camera-conditioned multi-view 2D motion diffusion model is trained on these domain-specific synthetic data to recover 3D human motion and 3D HOI in the world space. We demonstrate the effectiveness of our method on Internet videos featuring challenging motions such as gymnastics, as well as in-the-wild HOI videos, and show that it outperforms prior work in producing realistic human motion and human-object interaction.">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="static/images/twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="human motion reconstruction, human-object interaction">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>AnyLift: Scaling Motion Reconstruction from Internet Videos via 2D Diffusion</title>
+    <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/video-gallery.css">
+    <link rel="stylesheet" href="static/css/grid.css">
+
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/js/video-gallery.js"></script>
+    <script src="static/js/grid.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">AnyLift: Scaling Motion Reconstruction from Internet Videos<br> via 2D Diffusion</h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                        Anonymous CVPR submission
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Teaser -->
+<section class="hero teaser">
+    <div class="hero-body">
+        <div class="container">
+            <figure class="image" style="margin-bottom: 0;">
+                <img src="static/images/teaser.png" alt="Research Poster">
+                <figcaption class="mt-3">
+                    AnyLift reconstructs world-coordinated 3D human motion and human-object interactions from monocular videos captured under dynamic cameras by leveraging 2D keypoints and corresponding camera trajectories as training data. It enables realistic 3D motion and interaction lifting from Internet videos.
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+<!--End teaser -->
+
+
+<!-- Method -->
+<section class="hero is-small">
+  <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Method Overview</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <img src="static/images/method.png" alt="Research Poster">
+                <figcaption class="mt-3">
+                    AnyLift reconstructs human and HOI motions by taking 2D keypoint sequences extracted from videos as input and generating consistent multi-view 2D motions. To achieve this, we first train a single-view 2D motion diffusion model to synthesize multi-view 2D training data. During training, we adopt a hybrid data-source strategy that improves viewpoint coverage by combining global 2D pose sequences from Internet videos with locally reprojected poses. Finally, we train a multi-view 2D motion diffusion model to reconstruct consistent world-coordinated 3D human and HOI motions from real-world videos.
+                </figcaption>
+            </figure>
+        </div>
+  </div>
+</section>
+<!--End method -->
+
+
+<!-- Gymnastics -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Comparisons on Gymnastics Videos</h2>
+
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-rg-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-rg">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-rg-next">&#10095;</button>
+            </div>
+            <div class="video-caption" style="padding-bottom: 0;">
+                WHAM and GVHMR take video features as input, whereas the other methods use only extracted 2D keypoints.
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-rg-dots">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">More Results on Gymnastics Videos</h2>
+
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-rg-long-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-rg-long">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_long_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_long_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_long_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/rg_long_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-rg-long-next">&#10095;</button>
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-rg-long-dots">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Gymnastics -->
+
+
+<!-- Martial Arts -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Comparisons on Martial Arts Videos</h2>
+
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-martial-art-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-martial-art">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-martial-art-next">&#10095;</button>
+            </div>
+            <div class="video-caption" style="padding-bottom: 0;">
+                WHAM and GVHMR take video features as input, whereas the other methods use only extracted 2D keypoints.
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-martial-art-dots">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">More Results on Martial Arts Videos</h2>
+
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-martial-art-long-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-martial-art-long">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_long_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_long_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_long_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/martial_art_long_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-martial-art-long-next">&#10095;</button>
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-martial-art-long-dots">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Martial Arts -->
+
+
+<!-- HOIs -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 0.5rem;">Comparisons on the BEHAVE Dataset</h2>
+            <div class="video-caption" style="margin-bottom: 1rem">
+                <b>Input object keypoints are obtained via mesh-to-mask optimization.</b> 
+            </div>
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-hoi-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-hoi">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-hoi-next">&#10095;</button>
+            </div>
+            <div class="video-caption" style="padding-bottom: 0;">
+                VisTracker takes video features as input, whereas the other methods use only extracted 2D keypoints.
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-hoi-dots" style="margin-bottom: 2rem">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+
+            <div class="video-caption" style="margin-bottom: 1rem">
+                <b>Input object keypoints are obtained via reprojecting 3D ground truth.</b> 
+            </div>
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-hoi-gt-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-hoi-gt">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_gt_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_gt_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_gt_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_gt_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_gt_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-hoi-gt-next">&#10095;</button>
+            </div>
+            <div class="video-caption" style="padding-bottom: 0;">
+                VisTracker takes video features as input, whereas the other methods use only extracted 2D keypoints.
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-hoi-gt-dots">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">More Results on Captured Real-World Videos</h2>
+
+            <div class="video-gallery-carousel-container">
+                <!-- Navigation arrows -->
+                <button class="nav-arrow prev-arrow" id="gallery-carousel-hoi-long-prev">&#10094;</button>
+                <div class="video-gallery-carousel" id="gallery-carousel-hoi-long">
+                    <div class="video-single active">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Navigation arrow -->
+                <button class="nav-arrow next-arrow" id="gallery-carousel-hoi-long-next">&#10095;</button>
+            </div>
+            <div class="gallery-dots" id="gallery-carousel-hoi-long-dots">
+                <!-- Dots will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--End HOIs -->
+
+
+</body>
+</html>
