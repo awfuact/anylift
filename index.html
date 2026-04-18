@@ -29,15 +29,22 @@
     <link rel="stylesheet" href="static/css/bulma.min.css">
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="static/css/video-gallery.css">
     <link rel="stylesheet" href="static/css/grid.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/d383128d10.js" crossorigin="anonymous"></script>
     <script src="static/js/bulma-carousel.min.js"></script>
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
     <script src="static/js/video-gallery.js"></script>
     <script src="static/js/grid.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 </head>
 <body>
 
@@ -48,9 +55,71 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-1 publication-title">AnyLift: Scaling Motion Reconstruction from Internet Videos<br> via 2D Diffusion</h1>
-                    <div class="is-size-5 publication-authors">
+                    <div class="is-size-5 publication-authors" style="margin-bottom: 1rem;">
                         <!-- Paper authors -->
-                        Anonymous CVPR submission
+                        <span class="author-block">
+                            <a href="https://awfuact.github.io/" target="_blank">Hongjie Li</a><sup>*</sup>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://heng14.github.io/" target="_blank">Heng Yu</a><sup>*</sup>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://lijiaman.github.io/" target="_blank">Jiaman Li</a>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://kovenyu.com/" target="_blank">Hong-Xing (Koven) Yu</a>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <br>
+                        <span class="author-block">
+                            <a href="https://stanford.edu/~eadeli/" target="_blank">Ehsan Adeli</a>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://tml.stanford.edu/#people" target="_blank">C. Karen Liu</a>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <span class="author-block">
+                            <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>&nbsp&nbsp&nbsp&nbsp
+                        </span>
+                        <br>
+                        <div style="margin-top: 1rem;">
+                            Stanford University
+                            <br>
+                            <sup>*</sup>Contributed Equally
+                        </div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+            
+                            <!-- ArXiv Abstract Link -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+            
+                            <!-- Code link -->
+                            <!-- <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code (coming soon)</span>
+                                </a>
+                            </span> -->
+
+                            <!-- Twitter link -->
+                            <!-- <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fa-brands fa-x-twitter"></i></span>
+                                    <span>TL;DR</span>
+                                </a>
+                            </span> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,23 +142,6 @@
     </div>
 </section>
 <!--End teaser -->
-
-
-<!-- Method -->
-<section class="hero is-small">
-  <div class="hero-body">
-        <div class="container">
-            <h2 class="title is-2" style="margin-bottom: 1rem;">Method Overview</h2>
-            <figure class="image" style="margin-bottom: 0;">
-                <img src="static/images/method.png" alt="Research Poster">
-                <figcaption class="mt-3">
-                    AnyLift reconstructs human and HOI motions by taking 2D keypoint sequences extracted from videos as input and generating consistent multi-view 2D motions. To achieve this, we first train a single-view 2D motion diffusion model to synthesize multi-view 2D training data. During training, we adopt a hybrid data-source strategy that improves viewpoint coverage by combining global 2D pose sequences from Internet videos with locally reprojected poses. Finally, we train a multi-view 2D motion diffusion model to reconstruct consistent world-coordinated 3D human and HOI motions from real-world videos.
-                </figcaption>
-            </figure>
-        </div>
-  </div>
-</section>
-<!--End method -->
 
 
 <!-- Gymnastics -->
@@ -489,6 +541,30 @@
                         </div>
                     </div>
 
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_5.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="video-single">
+                        <div class="video-container">
+                            <video preload="auto" controls muted loop playsinline height="100%">
+                                <source src="static/videos/hoi_long_6.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- Navigation arrow -->
                 <button class="nav-arrow next-arrow" id="gallery-carousel-hoi-long-next">&#10095;</button>
@@ -501,6 +577,74 @@
 </section>
 <!--End HOIs -->
 
+
+<!-- Paper abstract -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 0.5rem;">Abstract</h2>
+            <figure class="image" style="margin-bottom: 0rem;">
+                <figcaption style="margin-top: 0rem;">
+                    Reconstructing 3D human motion and human-object interactions (HOI) from Internet videos is a fundamental step toward building large-scale datasets of human behavior. Existing methods struggle to recover globally consistent 3D motion under dynamic cameras, especially for motion types underrepresented in current motion-capture datasets, and face additional difficulty recovering coherent human-object interactions in 3D. We introduce a two-stage framework leveraging 2D diffusion that reconstructs 3D human motion and HOI from Internet videos. In the first stage, we synthesize multi-view 2D motion data for each domain, leveraging 2D keypoints extracted from Internet videos to incorporate human motions that rarely appear in existing MoCap datasets. In the second stage, a camera-conditioned multi-view 2D motion diffusion model is trained on the domain-specific synthetic data to recover 3D human motion and 3D HOI in the world space. We demonstrate the effectiveness of our method on Internet videos featuring challenging motions such as gymnastics, as well as in-the-wild HOI videos, and show that it outperforms prior work in producing realistic human motion and human-object interaction.
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Method -->
+<section class="hero is-small">
+  <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">Method Overview</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <img src="static/images/method.png" alt="Research Poster">
+                <figcaption class="mt-3">
+                    AnyLift reconstructs human and HOI motions by taking 2D keypoint sequences extracted from videos as input and generating consistent multi-view 2D motions. To achieve this, we first train a single-view 2D motion diffusion model to synthesize multi-view 2D training data. During training, we adopt a hybrid data-source strategy that improves viewpoint coverage by combining global 2D pose sequences from Internet videos with locally reprojected poses. Finally, we train a multi-view 2D motion diffusion model to reconstruct consistent world-coordinated 3D human and HOI motions from real-world videos.
+                </figcaption>
+            </figure>
+        </div>
+  </div>
+</section>
+<!--End method -->
+
+
+<!--BibTex citation -->
+ <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2" style="margin-bottom: 1rem;">BibTex</h2>
+            <figure class="image" style="margin-bottom: 0;">
+                <pre><code>@inproceedings{li2026anylift,
+  title={Anylift: Scaling motion reconstruction from internet videos via 2d diffusion},
+  author={Li, Hongjie and Yu, Heng and Li, Jiaman and Yu, Hong-Xing and Adeli, Ehsan and Liu, C Karen and Wu, Jiajun},
+  booktitle={Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
+}</code></pre>
+            </figure>
+        </div>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content has-text-centered">
+                    <p>
+                        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                        <br>
+                        This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
