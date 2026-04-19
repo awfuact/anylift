@@ -248,13 +248,12 @@ const VideoGallery = (function() {
     return {
         init: function() {
             // Initialize each gallery with their IDs
-            initGallery('gallery-carousel-rg');
-            initGallery('gallery-carousel-rg-long');
+            initGallery('gallery-carousel-internet-video-long');
+            initGallery('gallery-carousel-hoi-long');
             initGallery('gallery-carousel-martial-art');
-            initGallery('gallery-carousel-martial-art-long');
+            initGallery('gallery-carousel-rg');
             initGallery('gallery-carousel-hoi');
             initGallery('gallery-carousel-hoi-gt');
-            initGallery('gallery-carousel-hoi-long');
         },
         cleanup: cleanup
     };
